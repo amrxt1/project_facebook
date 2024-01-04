@@ -1,6 +1,10 @@
 <div style="border: 2px solid gray; margin: 10px 17px; padding: 7px 10px">
     <h2><%= "#{post.title}" %></h2>
     <p><%= "#{post.content}" %></p>
-    <%= link_to "Like"%>
+    <% if current_user.liked_posts.include?(post) %>
+      <%= link_to "Unlike", post_unlike_path(post), method: :post, data: { turbo_method: :post }  %>
+    <% else %>
+      <%= link_to "Like", post_like_path(post), method: :post, data: { turbo_method: :post } %>
+    <% end %>
     <br>
 </div>
