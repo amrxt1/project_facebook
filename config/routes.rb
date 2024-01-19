@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :likes
 
   resources :posts do
+    resources :comments
     post 'like' ,to: 'likes#create'
     post 'unlike' ,to: 'likes#destroy'
   end

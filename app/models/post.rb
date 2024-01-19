@@ -5,5 +5,6 @@ class Post < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :liked_by, through: :likes, source: :user
+  has_many :comments, as: :commentable
 
 end

@@ -1,0 +1,9 @@
+<h2>Post by <i><%=@post.user.name%></i></h2>
+<%= @post.content %>
+<h3>Add a Comment</h3>
+
+<%= form_with model: [@post, @comment] do |f|%>
+    <%= f.text_field :content, placeholder: "Content"%>
+    <br><br>
+    <%= f.submit%>
+<% end %>
