@@ -7,3 +7,10 @@
     <br><br>
     <%= f.submit%>
 <% end %>
+
+<h4>Comments</h4><ul>
+    
+    <%@comments.each do |c|%>
+        <li style="color:white"><%= c.content %></li>
+    <%end%>
+</ul>
