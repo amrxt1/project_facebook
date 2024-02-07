@@ -1,0 +1,5 @@
+<h1><%=current_user.name%>'s following</h1>
+
+<%@following.each do |f|%>
+    <%=f.name%>
+<%end%>

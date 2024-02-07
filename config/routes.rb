@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "posts#index"
@@ -11,7 +12,11 @@ Rails.application.routes.draw do
     post 'unlike' ,to: 'likes#destroy'
   end
 
-  devise_for :users
+  resources :users do
+    member do
+      get 'following', to: 'users#following'
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
