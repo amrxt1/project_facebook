@@ -5,6 +5,12 @@ class UsersController < ApplicationController
     render 'following'
   end
 
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers
+    render 'followers'
+  end
+
   def show
     @user = User.find(params[:id])
     puts @user.name

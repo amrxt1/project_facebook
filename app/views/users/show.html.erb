@@ -2,9 +2,8 @@
 
 
 <h1><%=@user.name%></h1>
-
-<p><%=@user.following.count%> following</p>
-<p><%=@user.followers.count%> followers</p>
+<p><%=@user.following.count%> <%= link_to "Following", following_user_path(@user) %> </p>
+<p><%=@user.following.count%> <%= link_to "Followers", followers_user_path(@user) %> </p>
 
 <h2><%=@user.name%>'s posts</h2>
 
