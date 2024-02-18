@@ -1,3 +1,5 @@
+require 'gravtastic'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -5,6 +7,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
   validates :name, presence: true
+
+
+  include Gravtastic
+  gravtastic :secure => true, :filetype => :gif, :size => 166, default: :retro
 
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post, dependent: :destroy
