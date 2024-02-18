@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "posts#index"
+  get 'user/my_profile', to: 'users#my_profile'
 
   resources :likes
+
+  resources :relationships, only: [:create, :destroy]
 
   resources :posts do
     resources :comments

@@ -16,5 +16,13 @@ class UsersController < ApplicationController
     puts @user.name
     puts @user.followers
     @posts = @user.posts
+    @show_followers = true
+  end
+
+  def my_profile
+    @user = current_user
+    @posts = @user.posts
+    @show_followers = false
+    render 'show'
   end
 end
