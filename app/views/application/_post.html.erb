@@ -11,4 +11,5 @@
     <% end %>
     <%= link_to "Comment", new_post_comment_path(post)%>
     <br>
+    <p><%= post.created_at.strftime("%F") %></p>
 </div>
