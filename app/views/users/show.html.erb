@@ -1,12 +1,11 @@
 <%= link_to "Home", root_url %>
 
 
-<h1><%= image_tag @user.gravatar_url(:rating => 'R', :secure => true) %><%=@user.name%></h1>
+<h1><%= image_tag @user.gravatar_url(:rating => 'R', :secure => true) %><%=@user.name%><%= render 'follow_btn' %></h1>
 
 <p><%=@user.following.count%> <%= link_to "Following", following_user_path(@user) %> </p>
 <p><%=@user.followers.count%> <%= link_to "Followers", followers_user_path(@user) %> </p>
 
-<%= render 'follow_btn' %>
 
 <h2><%=@user.name%>'s posts</h2>
 
