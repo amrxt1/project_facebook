@@ -1,0 +1,14 @@
+<%= link_to "Home", root_url %>
+
+<style>
+    .user{
+        display: flex;
+        align-items: center;
+        gap: 33px;
+    }
+</style>
+
+
+<% @users.each do |user| %>
+    <%= render 'user', {user: user} %>
+<% end %>
