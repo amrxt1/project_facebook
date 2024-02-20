@@ -70,3 +70,5 @@ end
 
 gem "devise", "~> 4.9"
 gem 'gravtastic'
+gem "letter_opener", group: :development
+gem "figaro"
