@@ -1,6 +1,6 @@
 
 
-<div class="user" style="border: 2px solid #F4A261; border-radius: 10px; margin: 10px 17px; padding: 16px 10px">
+<div>
     <%= image_tag user.gravatar_url(:rating => 'R', :secure => true, :size => 77)  %> 
     <%= link_to "#{user.name}", user_path(user) %>
 </div>
