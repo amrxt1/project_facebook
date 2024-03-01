@@ -4,7 +4,7 @@
 <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
 
 <% flash.each do |type, msg| %>
-    <div style="color:green; padding: 10px; font-weight: bold; font-size: 1.3rem">
+    <div>
         <%= msg %>
     </div>
 <% end %>

@@ -87,11 +87,8 @@ Rails.application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :user_name            => Figaro.env.mail,
-    :password             => Figaro.env.scraper_pass,
+    :password             => Figaro.env.fbpass,
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
-
-
-
 end
