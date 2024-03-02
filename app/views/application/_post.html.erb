@@ -1,15 +1,17 @@
-<div>
-    <h2><%= "#{post.title}" %></h2>
-    <p><%= "#{post.content}" %></p>
-    <br>
-    <p>by <%=link_to "#{post.user.name}", user_path(post.user)%>
-    <%="#{post.likes.count} likes #{post.comments.count} comments" %></p>
-    <% if current_user.liked_posts.include?(post) %>
-      <%= link_to "Unlike", post_unlike_path(post), method: :post, data: { turbo_method: :post }  %>
-    <% else %>
-      <%= link_to "Like", post_like_path(post), method: :post, data: { turbo_method: :post } %>
-    <% end %>
-    <%= link_to "Comment", new_post_comment_path(post)%>
-    <br>
-    <p><%= post.created_at.strftime("%F") %></p>
+<div class="post">
+    <div class="title"><%= "#{post.title}" %></div>
+    <div class="post-content">
+      <div class="content"><%= "#{post.content}" %></div>
+      <div class="post-info">by <%=link_to "#{post.user.name}", user_path(post.user), class: "post-user"%>
+      <%="#{post.likes.count} likes #{post.comments.count} comments" %></div>
+      <div class="post-links">
+        <% if current_user.liked_posts.include?(post) %>
+          <%= link_to "Unlike", post_unlike_path(post), method: :post, data: { turbo_method: :post }  %>
+        <% else %>
+          <%= link_to "Like", post_like_path(post), method: :post, data: { turbo_method: :post } %>
+        <% end %>
+        <%= link_to "Comment", new_post_comment_path(post)%>
+      </div>
+      <p><%= post.created_at.strftime("%F") %></p>
+    </div>
 </div>

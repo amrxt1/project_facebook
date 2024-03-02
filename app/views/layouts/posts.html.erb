@@ -8,9 +8,33 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+      :root {
+        --primary-color: #F2F4F3;
+        --secondary-color: #22333B ;
+        --accent-color: #A9927D;
+        --accent-color-2: #5E503F;
+        --text-color: #0A0908;
+
+        color: var(--text-color);
+      }
+      .header{
+        background-color: var(--secondary-color);
+        padding: 10px;
+        color: var(--primary-color);
+
+        display: flex;
+        gap: 21px;
+      }
+      <%= yield :styles %>
+    </style>
   </head>
 
   <body>
+    <div class="header">
+      <%= yield :header %>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -1,7 +1,76 @@
-<%= link_to "New Post", new_post_path %>
-<%= link_to "My Profile", user_my_profile_path %>
-<%= link_to "Add Friends", users_path %>
-<%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+<% content_for :header do %>
+    <%= link_to "New Post", new_post_path %>
+    <%= link_to "My Profile", user_my_profile_path %>
+    <%= link_to "Add Friends", users_path %>
+    <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+<% end %>
+
+<% content_for :styles do %>
+    .header>a{
+        font-family: 'Roboto';
+
+        color: var(--accent-color);
+        padding: 4px;
+
+        position: sticky;
+    }
+
+    .header>a:hover{
+        color: var(--secondary-color);
+        border-bottom: 2px solid var(--accent-color-2);
+        border-right: 2px solid var(--accent-color-2);
+        background-color: var(--accent-color);
+        padding-right: 2px;
+        padding-top: 2px;
+    }
+
+    .posts{
+        padding: 10px 17%;
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+    }
+    .post{
+        border: 2px solid var(--secondary-color);
+        border-radius: 11px;
+        color: var(--text-color);
+
+        padding: 2%;
+    }
+
+    .post>.title{
+        font-size: 1.3rem;
+        font-weight: 700;
+
+        padding-bottom: 10px;
+    }
+
+    .post-content{
+        padding: 10px 17px;
+        line-height: 1.33;
+
+        border-radius: 11px;
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+
+        box-shadow: 0px 0px 5px black;
+    }
+
+    .post-content>.content{
+        font-size: 1.1rem;
+        padding-bottom: 7px;
+    }
+
+    .post-info>.post-user,
+    .post-links>a{
+        color: var(--accent-color)
+    }
+    .post-info>.post-user:hover,
+    .post-links>a:hover{
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+<% end %>
 
 <% flash.each do |type, msg| %>
     <div>
@@ -9,6 +78,8 @@
     </div>
 <% end %>
 
-<% @posts.each do |post|%>
-    <%= render 'post',{post: post}%>
-<%end%>
+<div class="posts">
+    <% @posts.each do |post|%>
+        <%= render 'post',{post: post}%>
+    <%end%>
+</div>
