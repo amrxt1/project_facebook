@@ -1,14 +1,44 @@
-<%= link_to "Home", root_url %>
 
-<style>
-    .user{
+<% content_for :header do %>
+    <%= link_to "Home", root_url %>
+<% end %>
+
+<% content_for :styles do %>
+    .user-index-user{
         display: flex;
         align-items: center;
         gap: 33px;
+
+        border: 2px solid var(--accent-color-2);
+        padding: 1rem 1.618rem;
+        border-radius: 7px;
+
+        background-color: var(--accent-color);
     }
-</style>
-
-
-<% @users.each do |user| %>
-    <%= render 'user', {user: user} %>
+    .users{
+        padding: 0px 21%;
+        padding-top: 1.66rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .user-index-user>img{
+        border: 3px solid var(--secondary-color);
+        border-radius: 7px;
+    }
+    .user-index-user>a{
+        color: var(--secondary-color);
+        font-size: 1.618rem;
+    }
+    .user-index-user>a:hover{
+        color: var(--primary-color);
+        font-size: 1.618rem;
+        text-decoration: underline;
+    }
 <% end %>
+
+<div class="users">
+    <% @users.each do |user| %>
+        <%= render 'user', {user: user} %>
+    <% end %>
+</div>
