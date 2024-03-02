@@ -1,9 +1,83 @@
-<h1>Create a New Post:</h1>
-
-<%= form_with model: @post do |f|%>
-    <%= f.text_field :title, placeholder: "Title"%>
-    <br><br>
-    <%= f.text_area :content,size: "32x10", placeholder: "Content"%>
-    <br><br>
-    <%= f.submit%>
+<% content_for :header do %>
+    <%= link_to "My Profile", user_my_profile_path %>
+    <%= link_to "Add Friends", users_path %>
+    <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
 <% end %>
+
+<% content_for :styles do %>
+    .main{
+        display: flex;
+        justify-content: center;
+
+        padding-top: 33px;
+    }
+
+    .content{
+        padding: 2rem 3.2rem;
+        background-color: var(--accent-color);
+
+        border: 2px solid var(--secondary-color);
+        border-radius: 17px;
+    }
+    
+    .title{
+        font-size: 2rem;
+    }
+
+    .form{
+        padding: 10px 0px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #post_title,
+    #post_content{
+        background-color: var(--secondary-color);
+        border: 2px solid var(--accent-color-2);
+        color: var(--primary-color);
+        border-radius: 7px;
+        padding: 3px;
+    }
+
+    #post_title{
+        font-size: 1.2rem;
+    }
+
+    #post_content{
+        font-size: 1rem;
+    }
+
+    div.form input:last-child{
+        background-color: var(--accent-color);
+        border: 2px solid var(--secondary-color);
+        border-radius: 5px;
+        padding: 7px 0px;
+
+        font-size: 1.07rem;
+    }
+
+    div.form input:last-child:hover{
+        background-color: var(--secondary-color);
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+
+
+        border-radius: 5px;
+        padding: 7px 0px;
+    }
+<% end %>
+
+<div class="main">
+    <div class="content">
+        <div class="title">Create a New Post:</div>
+        
+        <%= form_with model: @post do |f|%>
+            <div class="form">
+                <%= f.text_field :title, placeholder: "Title"%>
+                <%= f.text_area :content,size: "32x10", placeholder: "Content"%>
+                <%= f.submit%>
+            </div>
+        <% end %>
+    </div>
+</div>
