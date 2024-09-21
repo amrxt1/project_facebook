@@ -9,3 +9,4 @@ This is my work in accordance to The Odin Project's final project from the curri
 
 Find the live app below:
 > https://project-facebook.fly.dev/
+> credentials for a visit: { email: 'test@foo.com', pass: 'foobar' }
