@@ -6,3 +6,7 @@ This is my work in accordance to The Odin Project's final project from the curri
 
 > The above curriculum can be found here:
 > https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project
+
+Find the live app below:
+> https://project-facebook.fly.dev/
+> credentials for a visit: { email: 'test@foo.com', pass: 'foobar' }
