@@ -1,111 +1,14 @@
-<% content_for :styles do %>
-#heading{
-  font-size: 1.7rem;
-}
-
-.main{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-.main>a{
-  color: var(--accent-color);
-}
-.main>a:hover{
-  color: var(--secondary-color);
-
-}
-
-body{
-  background-color: var(--primary-color);
-  color: var(--text-color);
-}
-
-.header{
-  background-color: var(--secondary-color);
-  position: relative;
-  z-index: 10;
-
-  padding: 1.5rem 2rem;
-  text-align: left;
-  box-shadow: 0px -10px 21px black;
-  margin-bottom: 17px;
-}
-
-#header-logo{
-  position: relative;
-
-  color: var(--accent-color-2);
-  background-color: var(--primary-color);
-  padding: 0.3rem 1rem;
-  font-weight: 500;
-  font-size: 2rem;
-}
-.form{
-  display: flex;
-  flex-direction: column;
-  padding: 47px 0px;
-  gap: 17px;
-}
-
-.field{
-  display: flex;
-  flex-direction: column;
-}
-
-.field>label{
-  font-family: 'Roboto';
-}
-
-.field>input{
-  font-size: 1rem;
-  padding: 4px 7px;
-
-  background-color: var(--accent-color);
-  border: 2px solid var(--accent-color-2);
-  color: var(--secondary-color);
-  border-radius: 3px;
-}
-
-.form >input{
-  background-color: var(--accent-color-2);
-  border: 2px solid var(--accent-color);
-  color: var(--primary-color);
-  border-radius: 7px;
-
-  width: fit-content;
-  padding: 0px 17px;
-  font-size: 1.1rem;
-
-  font-family: monospace;
-}
-.form >input:hover{
-  background-color: var(--primary-color-2);
-  border: 2px solid var(--accent-color-2);
-  color: var(--secondary-color);
-  border-radius: 7px;
-
-  width: fit-content;
-  padding: 0px 17px;
-  font-size: 1.1rem;
-
-  font-family: monospace;
-}
-<% end %>
-
-<div class="header"><span id="header-logo">ProjectFacebook</span></div>
+<div class="w-full"><span id="header-logo">ProjectFacebook</span></div>
 <div class="main">
   
   <h2 id="heading">Log in</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form">
-        <div class="field">
+      <div class="">
+        <div class="">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-        <div class="field">
+        <div class="">
           <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>

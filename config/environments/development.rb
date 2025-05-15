@@ -80,7 +80,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
-  host = 'projectfacebook.com'
+  host = 'https://project-facebook.fly.dev'
   config.action_mailer.default_url_options = { host: host }
 
   config.action_mailer.smtp_settings = {

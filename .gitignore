@@ -33,3 +33,24 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# certs or local keyfiles
+*cert.pub
+exit
+exs
+
+# editor/system files
+*.swp
+*.swo
+*.bak
+*.log
+.DS_Store
+.idea/
+.vscode/
+
+# Fly.io build
+.fly/
+fly.toml
